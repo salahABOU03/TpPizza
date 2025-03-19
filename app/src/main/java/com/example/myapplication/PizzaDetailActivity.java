@@ -2,9 +2,15 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 import android.view.Menu;
+
+import android.content.Intent;
+
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
+import android.view.MenuInflater;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,8 +52,9 @@ public class PizzaDetailActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem    item) {
         if (item.getItemId() == R.id.action_share) {
             shareOnWhatsApp();
             return true;
@@ -56,7 +63,7 @@ public class PizzaDetailActivity extends AppCompatActivity {
     }
 
     private void shareOnWhatsApp() {
-        String message = "Try this pizza recipe! 🍕\n" + selectedPizza.getName() + "\n" + selectedPizza.getIngredients();
+        String message = "Try this pizza recipe! 🍕\n" + selectedPizza.getNom() + "\n" + selectedPizza.getIngredients();
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, message);
